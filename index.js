@@ -12,6 +12,10 @@ app.use(express.json());
 // connect database
 connectDB();
 
+app.get("/", (req, res) => {
+    return res.status(200).send("<h1>Wellcome to My RESTful API using Sequelize</h1>")
+})
+
 // รอฟังที่ PORT และ แสดงว่าโชที่ PORT ไหน
 app.listen(PORT, ()=>{
     console.log(`Server is running on: http://localhost:${PORT}`);
