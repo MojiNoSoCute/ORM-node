@@ -39,10 +39,16 @@ const connectDB = async () =>{
         console.log("Connected to PostgresSQL!")
         // ให้ table sync กัน
         await sequelize.sync({alter: true});
+        // แสดงให้ดูว่า sync แล้ว
         console.log("Table synchronize!")
+    // จับ error
     } catch (error) {
+        // แสดงให้ดูว่า connect fail และ แสดง error
         console.error("Connection failed!", error);
+        // จบการทำงานแบบ เกิด Error จนโปรแกรมไปต่อไม่ได้
         process.exit(1)
     }
 };
+
+// ส่งออก
 export { sequelize, Product, connectDB };
