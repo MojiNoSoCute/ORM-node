@@ -1,0 +1,25 @@
+# สร้าง container
+services:
+  # เรียกใช้ image
+  postgres-db:
+    # ใช้ image name: version
+    image: postgres:15-alpine
+    # continer name
+    container_name: express_postgres_container
+    # set environment 
+    # user , password , DB name 
+    environment:
+      POSTGRES_USER: dev_user
+      POSTGRES_PASSWORD: dev_password
+      POSTGRES_DB: product_db
+    # binding port
+    ports:
+      # local-port:container-port
+      - "5432:5432"
+    # binging path
+    volumes:
+      # local-path:container-path
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  # local-path
+  pgdata:
