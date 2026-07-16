@@ -29,7 +29,7 @@ const Product = sequelize.define("Product", {
     }
 })
 
-// connect to DB
+// function connect to DB
 const connectDB = async () =>{
     // try catch เพื่อจับ error
     try {
