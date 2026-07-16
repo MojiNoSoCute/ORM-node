@@ -28,3 +28,21 @@ const Product = sequelize.define("Product", {
         allowNull: false,
     }
 })
+
+// connect to DB
+const connectDB = async () =>{
+    // try catch เพื่อจับ error
+    try {
+        // รอ ให้เชื่อม database
+        await sequelize.authenticate();
+        // แสดงให้ดูว่าเชื่อมแล้ว
+        console.log("Connected to PostgresSQL!")
+        // ให้ table sync กัน
+        await sequelize.sync({alter: true});
+        console.log("Table synchronize!")
+    } catch (error) {
+        console.error("Connection failed!", error);
+        process.exit(1)
+    }
+};
+export { sequelize, Product, connectDB };
