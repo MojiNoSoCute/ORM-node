@@ -3,11 +3,11 @@ import { Sequelize, DataTypes } from "sequelize";
 
 // DB connection
 // db_name , user, password, { configulation option }
-const sequelize = new Sequelize("postgres_db", "dev_user", "dev_password", {
+const sequelize = new Sequelize("product_db", "dev_user", "dev_password", {
   host: "localhost",
-  port: 5432,
-  dialect: "prostgres",
-  loggin: false,
+  port: 5433,
+  dialect: "postgres",
+  logging: false,
 });
 
 // define databse schema

@@ -15,7 +15,7 @@ services:
     # binding port
     ports:
       # local-port:container-port
-      - "5432:5432"
+      - "5433:5432"
     # binging path
     volumes:
       # local-path:container-path
