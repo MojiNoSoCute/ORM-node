@@ -38,7 +38,7 @@ const connectDB = async () =>{
         // แสดงให้ดูว่าเชื่อมแล้ว
         console.log("Connected to PostgresSQL!")
         // ให้ table sync กัน
-        await sequelize.sync({alter: true});
+        await sequelize.sync({alter: false});
         // แสดงให้ดูว่า sync แล้ว
         console.log("Table synchronize!")
     // จับ error

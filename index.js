@@ -27,12 +27,13 @@ app.get("/api/products", async (req,res) => {
     }
 })
 
-app.get("/api/product/:id", async (req, res) => {
+// async ให้รอ await 
+app.get("/api/products/:id", async (req, res) => {
     try {
         // แปลง id จาก string เป็น number
         const productId = Number(req.params.id);
 
-        // ค้นหา product ที่มี id ตรงกับที่ขอมา
+        // ค้นหา product ที่มี id ตรงกับที่ขอมา await ให้รอทำให้เสร็จก่อน
         const product = await Product.findByPk(productId);
 
         // ถ้าไม่เจอ ให้ตอบกลับ 404 และ return ออกจาก function เลย
@@ -58,7 +59,7 @@ app.post("/api/products", async (req,res) => {
             return res.status(400).json({message: "Please provide name and price"})
         }
 
-        // สร้าง product ใหม่
+        // สร้าง product ใหม่ await ให้รอทำให้เสร็จก่อน
         const product = await Product.create({ 
             name: name, 
             price: Number(price)
@@ -70,7 +71,7 @@ app.post("/api/products", async (req,res) => {
     }
 })
 
-app.put("/api/product/:id", async (req, res) => {
+app.put("/api/products/:id", async (req, res) => {
     try {
         // แปลง id จาก string เป็น number
         const productId = Number(req.params.id);
@@ -99,7 +100,7 @@ app.put("/api/product/:id", async (req, res) => {
     }
 });
 
-app.delete("/api/product/:id", async (req, res) => {
+app.delete("/api/products/:id", async (req, res) => {
     try {
         // แปลง id จาก string เป็น number
         const productId = Number(req.params.id);
@@ -125,3 +126,5 @@ app.delete("/api/product/:id", async (req, res) => {
 app.listen(PORT, ()=>{
     console.log(`Server is running on: http://localhost:${PORT}`);
 });
+
+exports
