@@ -6,8 +6,8 @@ services:
     image: postgres:15-alpine
     # continer name
     container_name: express_postgres_container
-    # set environment 
-    # user , password , DB name 
+    # set environment
+    # user , password , DB name
     environment:
       POSTGRES_USER: dev_user
       POSTGRES_PASSWORD: dev_password
