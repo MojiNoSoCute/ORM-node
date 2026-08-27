@@ -1,11 +1,13 @@
 // import express and table Product , function connectDB form db.js
 import express from "express";
 import { Product, connectDB } from "./db.js";
+import cors from "cors";
 
 // กำหนดตัวแปร
 const app = express();
 const PORT = 5000;
 
+app.use(cors());
 // แปลงให้เป็น json
 app.use(express.json());
 
